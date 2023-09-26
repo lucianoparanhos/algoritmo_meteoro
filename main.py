@@ -127,7 +127,7 @@ while not fim:
         upmcc_coordenada_x = int(input("Digite a coordenada X da UPMCC: "))
         upmcc_coordenada_y = int(input("Digite a coordenada Y da UPMCC: "))
 
-        print("As coordenadas polares serão convertidas em cartesianas.")
+        print("\nAs coordenadas polares serão convertidas em cartesianas.")
         print(f"Coordenadas ({upmcc_coordenada_x},{upmcc_coordenada_y}) definidas como ponto de origem.")
 
         input("\nAperte <Enter> para continuar")
@@ -145,6 +145,29 @@ while not fim:
             print("Impossível processar qualquer registro de queda no momento: localização da UPMCC ainda não informada")
             input("Aperte <Enter> para continuar")
             continue
+
+        print("Registro de quedas. Digite uma distância negativa para encerrar\n")
+
+        # Variável responsável para encerrar o registro de quedas
+        fim_registro_queda = False
+
+        # Variável para contar a quantidade de registros de quedas
+        contador_registro_queda = 0
+
+        while not fim_registro_queda:
+            contador_registro_queda = contador_registro_queda + 1
+
+            print(f"Registro #{contador_registro_queda}")
+            distancia = float(input("-> Distância: "))
+
+            if distancia < 0:
+                fim_registro_queda = True
+                contador_registro_queda = contador_registro_queda - 1
+                print(f"\nFim da coleta de registros: {contador_registro_queda} queda(s) informada(s).")
+                input("Aperte <Enter> para continuar")
+                continue
+
+            angulo = float(input("-> Ângulo"))
 
         contar_opcao3 = contar_opcao3 + 1
 
